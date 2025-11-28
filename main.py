@@ -231,16 +231,23 @@ def analyze_and_store_traffic_data(processed_img, img_shape, road_graph, road_gr
 if __name__ == "__main__":
     print("--- 🚦 Starting Traffic Monitor Job ---")
     
-    # Check for Map File
     SCRIPT_DIR = Path(__file__).parent
-    MY_MAP_FILE = SCRIPT_DIR / LOCAL_MAP_FILE_NAME
+    ZIP_FILE_PATH = SCRIPT_DIR / LOCAL_MAP_ARCHIVE
+    OSM_FILE_PATH = SCRIPT_DIR / EXTRACTED_MAP_NAME
     
-    if not MY_MAP_FILE.is_file():
-        print(f"Error: {LOCAL_MAP_FILE_NAME} not found. Please upload it to your repo.")
-        exit(1)
-        
-    # Load Map
-    road_graph, road_graph_proj = get_road_network_from_osm_file(MY_MAP_FILE, USER_BOUNDING_BOX)
+    # 1. Check if we need to unzip
+    if not OSM_FILE_PATH.exists():
+        if ZIP_FILE_PATH.is_file():
+            print(f"Unzipping {LOCAL_MAP_ARCHIVE}...")
+            with zipfile.ZipFile(ZIP_FILE_PATH, 'r') as zip_ref:
+                zip_ref.extractall(SCRIPT_DIR)
+            print("Unzip complete.")
+        else:
+            print(f"Error: Neither {EXTRACTED_MAP_NAME} nor {LOCAL_MAP_ARCHIVE} found.")
+            exit(1)
+
+    # 2. Load Map (Now point to the extracted OSM_FILE_PATH)
+    road_graph, road_graph_proj = get_road_network_from_osm_file(OSM_FILE_PATH, USER_BOUNDING_BOX)
     
     if road_graph and road_graph_proj:
         # Run ONCE (GitHub Actions handles the schedule)
