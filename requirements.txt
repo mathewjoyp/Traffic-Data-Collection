@@ -1,3 +1,12 @@
 requests
 psycopg2-binary
 # Add any other libraries you use (e.g., pandas, numpy)
+opencv-python-headless
+numpy
+osmnx
+psycopg2-binary
+selenium
+webdriver-manager
+python-dotenv
+pillow
+requests
