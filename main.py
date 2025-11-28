@@ -21,7 +21,8 @@ USER_BOUNDING_BOX = (10.8122, 10.8000, 76.6500, 76.6400) # Example: (North, Sout
 # 2. FILE SETTINGS
 SCREENSHOT_FILENAME = "gmaps_screenshot.png"
 OUTPUT_IMAGE_FILENAME = "traffic_only.png"
-LOCAL_MAP_FILE_NAME = "map.osm" 
+LOCAL_MAP_ARCHIVE = "map.osm.zip"  # The file you uploaded
+EXTRACTED_MAP_NAME = "map.osm"     # The file inside the zip
 
 # --- HELPER FUNCTIONS ---
 
