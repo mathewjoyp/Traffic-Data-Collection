@@ -11,3 +11,5 @@ geopy
 matplotlib
 scipy
 networkx
+os
+zipfile
