@@ -17,7 +17,8 @@ from pathlib import Path
 
 # 1. HARDCODE YOUR COORDINATES HERE (GitHub cannot accept input())
 # Replace these numbers with the specific area you want to monitor
-USER_BOUNDING_BOX = (10.8122, 10.8000, 76.6500, 76.6400) # Example: (North, South, East, West)
+USER_BOUNDING_BOX = (10.8200, 10.8050, 76.5950, 76.5800) # Example: (North, South, East, West)
+# UPDATED COORDINATES (Point 1 area with a wider margin)
 
 # 2. FILE SETTINGS
 SCREENSHOT_FILENAME = "gmaps_screenshot.png"
