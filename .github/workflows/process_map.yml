@@ -1,37 +1,29 @@
-name: Process Map and Update DB
+name: Traffic Monitor Cron
 
 on:
   schedule:
-    # Cron syntax for "Every 15 minutes"
-    - cron: '*/15 * * * *'
-  
-  # Allows you to run this manually from the Actions tab for testing
-  workflow_dispatch:
+    - cron: '*/15 * * * *' # Runs every 15 minutes
+  workflow_dispatch: # Allows manual trigger button
 
 jobs:
-  run-script:
+  run-traffic-script:
     runs-on: ubuntu-latest
-
+    
     steps:
-      # Step 1: Check out your code so the runner can access it
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9' # Or whichever version you use
+          python-version: '3.10'
 
-      # Step 3: Install dependencies
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -r requirements.txt
 
-      # Step 4: Run the script and pass the secret
-      - name: Run processing script
+      - name: Run Traffic Script
         env:
-          # This maps the GitHub Secret to the Python OS Environment Variable
           NEON_DB_URL: ${{ secrets.NEON_DB_URL }}
         run: python main.py
