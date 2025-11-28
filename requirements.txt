@@ -1,0 +1,3 @@
+requests
+psycopg2-binary
+# Add any other libraries you use (e.g., pandas, numpy)
