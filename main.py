@@ -255,7 +255,7 @@ if __name__ == "__main__":
         print("Road network loaded. Starting scan...")
         
         # NOTE: If you want to keep history, COMMENT OUT this line:
-        clear_traffic_data() 
+        #clear_traffic_data() 
         
         if take_google_maps_screenshot(USER_BOUNDING_BOX, SCREENSHOT_FILENAME):
             processed_img, img_shape = process_image_for_traffic(SCREENSHOT_FILENAME, OUTPUT_IMAGE_FILENAME)
