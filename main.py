@@ -5,6 +5,7 @@ import psycopg2 # CHANGED: Switched to Postgres for Neon
 import time
 import geopy.distance
 import os
+import zipfile
 from datetime import datetime
 from PIL import Image
 from selenium import webdriver
