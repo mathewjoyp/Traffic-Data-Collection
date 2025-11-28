@@ -17,7 +17,7 @@ from pathlib import Path
 
 # 1. HARDCODE YOUR COORDINATES HERE (GitHub cannot accept input())
 # Replace these numbers with the specific area you want to monitor
-USER_BOUNDING_BOX = (10.8200, 10.8050, 76.5950, 76.5800) # Example: (North, South, East, West)
+USER_BOUNDING_BOX = (28.64397, 28.62054, 77.23663, 77.20281) # Example: (North, South, East, West)
 # UPDATED COORDINATES (Point 1 area with a wider margin)
 
 # 2. FILE SETTINGS
