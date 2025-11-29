@@ -150,20 +150,12 @@ def process_image_for_traffic(filename, output_filename):
         return None, None
     img = img[100:-50, 50:-50]
     hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    # --- TEMPORARY TEST: DETECT GREEN TRAFFIC ---
-    # Google Maps Green is roughly in this HSV range
-    lower_green = np.array([40, 100, 100])
-    upper_green = np.array([80, 255, 255])
-    
-    # Create mask for Green instead of Red
-    red_mask = cv2.inRange(hsv_img, lower_green, upper_green)
-    # --------------------------------------------
-    '''lower_red1 = np.array([0, 120, 70])
+    lower_red1 = np.array([0, 120, 70])
     upper_red1 = np.array([10, 255, 255])
     lower_red2 = np.array([170, 120, 70])
     upper_red2 = np.array([180, 255, 255])
     red_mask = cv2.add(cv2.inRange(hsv_img, lower_red1, upper_red1),
-                       cv2.inRange(hsv_img, lower_red2, upper_red2))'''
+                       cv2.inRange(hsv_img, lower_red2, upper_red2))
     
     # Remove icons
     circles = cv2.HoughCircles(red_mask, cv2.HOUGH_GRADIENT, dp=1, minDist=20,
