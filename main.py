@@ -22,7 +22,7 @@ REGIONS = [
     },
     {
         "id": "region_2", # CHANGE THIS ID
-        "bbox": (10.78538, 10.75553, 76.68328, 76.63020), # <--- UPDATE COORDINATES HERE
+        "bbox": (10.79174, 10.75540, 76.68835, 76.62260), # <--- UPDATE COORDINATES HERE
         "zip_file": "map2.osm.zip", # <--- UPDATE FILENAME HERE
         "osm_file": "map2.osm" # Assuming the file inside the zip is map2.osm
     }
